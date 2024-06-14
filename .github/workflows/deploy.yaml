@@ -23,13 +23,17 @@ jobs:
         with:
           node-version: 20
 
-      - name: Build Angular app to prod
+      - name: Install dependencies
+        run: npm install
         working-directory: gh-ci-cd
-        run: npm install && npm run build:prod
+
+      - name: Build Angular app to prod
+        run: npm run build:prod
+        working-directory: gh-ci-cd
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist/gh-ci-cd
+          folder: gh-ci-cd/dist/gh-ci-cd
           branch: prod
           token: ${{ secrets.GH_TOKEN }}

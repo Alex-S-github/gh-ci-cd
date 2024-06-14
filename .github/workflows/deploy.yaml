@@ -25,11 +25,11 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-        working-directory: gh-ci-cd
+        working-directory: ./gh-ci-cd
 
       - name: Build Angular app to prod
         run: npm run build:prod
-        working-directory: gh-ci-cd
+        working-directory: ./gh-ci-cd
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
